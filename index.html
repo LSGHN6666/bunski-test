@@ -13,12 +13,45 @@ body {
   font-family: 'Oswald', sans-serif;
   background-color: #FFF7D2;
 
-  background-image: url('BandBG_unscharf.jpg');
+  background-image: url('BG3x.jpg');
   background-repeat: repeat;
   background-position: center;
   background-size: contain;
   background-attachment: fixed;
 }
+
+p {
+  font-size: 22px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 15px auto;
+}
+
+
+
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 100px;
+}
+
+
+h2 {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1); /* 10% opacity */
+  color: black;
+
+  margin: 0;          
+  padding: 10px 0;    
+
+  text-align: center;
+  letter-spacing: 3px;
+
+  backdrop-filter: blur(8px); /* optional: wie Navbar */
+}
+
 
   h3 {
   font-size: 16px;
@@ -47,9 +80,14 @@ nav a {
 }
 
 section {
-  min-height: 100vh;
-  padding: 100px 20px 40px;
+  min-height: auto;
   text-align: center;
+  padding: 0; /* wichtig */
+  scroll-margin-top: 80px; /* Höhe deiner Navbar */
+}
+
+section > *:not(h2) {
+  padding: 20px;
 }
 
 /* VIDEO */
@@ -62,6 +100,15 @@ section {
   width: 100%;
   height: 450px;
   border: none;
+}
+
+#home p {
+  background: rgba(255, 247, 210, 0.15);
+  backdrop-filter: blur(20px);
+  padding: 15px 25px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 20px auto;
 }
 
 /* ABOUT */
@@ -109,6 +156,62 @@ section {
     height: 250px;
   }
 }
+
+
+.live-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  
+  background: rgba(255, 247, 210, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 10px;
+  
+}
+
+.live-table th {
+  text-transform: uppercase;
+  padding: 10px;
+  border-bottom: 2px solid black;
+}
+
+.live-table td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+/* Thumbnail */
+.thumb {
+  width: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.thumb:hover {
+  transform: scale(1.1);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
 </style>
 </head>
 
@@ -116,7 +219,7 @@ section {
 
 <nav>
   <a href="#home">HOME</a>
-  <a href="#about">ABOUT</a>
+  <!-- <a href="#about">ABOUT</a> -->
   <a href="#music">MUSIC</a>
   <a href="#live">LIVE</a>
   <a href="#contact">CONTACT</a>
@@ -128,16 +231,6 @@ section {
 <section id="home">
   <h1>BUNSKI</h1>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/rspQUu8whjA" allowfullscreen></iframe>
-  </div>
-</section>
-
-<!-- ÜBER UNS -->
-<section id="about">
-  <div class="about">
-    <h3>ABOUT US</h3>
-
     <p>
       Bunski ist eine Indierockband aus Wien. Vier Freunde – Gesang, zwei Gitarren,
       Bass und Drums – mit einem Sound, der zwischen treibendem Gitarrenrock
@@ -145,55 +238,102 @@ section {
       Riffs, die unter die Haut gehen und Bum Tschak zum Mitwippen.
     </p>
 
-    <img src="uberuns.jpg.jpeg">
-  </div>
 </section>
 
 <!-- MUSIK -->
 <section id="music">
-  <h3>MUSIC</h3>
+  <h2>MUSIC</h2>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/USITm5sKiRw" allowfullscreen></iframe>
+
+  </div>
 
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/rspQUu8whjA" allowfullscreen></iframe>
   </div>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/USITm5sKiRw" allowfullscreen></iframe>
-  </div>
+
 
 </section>
 
 <!-- LIVE -->
 <section id="live">
-  <h3>LIVE</h3>
+  <h2>LIVE</h2>
 
-  <div class="live">
-    <h3>07.06 – Club Lucia</h3>
-    <p>Wien</p>
+  <table class="live-table">
+    <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Venue</th>
+        <th>Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>07.06.2026</td>
+        <td>Club Lucia, Wien</td>
+        <td>
+          <img src="PosterLucia.jpg" class="thumb" onclick="openImage(this.src)">
+        </td>
+      </tr>
+	  
 
-    <img src="PosterLucia.jpg" alt="Poster">
-  </div>
+	  
+	  <tr>
+        <td>19.11.2025</td>
+        <td>Cafe Carina, Wien</td>
+        <td>
+          <img src="cafecarina1.jpg" class="thumb" onclick="openImage(this.src)">
+        </td>
+      </tr>
+	  
+	  	  <tr>
+        <td>28.06.2025</td>
+        <td>The Church International Pub, Wien</td>
+        <td>
+          <img src="church06.05.2026.png" class="thumb" onclick="openImage(this.src)">
+        </td>
+      </tr>
+	  
+    </tbody>
+  </table>
 </section>
 
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeImage()">
+  <img id="lightbox-img">
+</div>
 <!-- KONTAKT -->
 <section id="contact">
-  <h3>CONTACT US</h3>
+  <h2>CONTACT US</h2>
 
   <p>
-    <a href="mailto:xxx">xxx</a>
+    <a href="mailto:band@bunski.band">band@bunski.band</a>
   </p>
 </section>
 
 <!-- SOCIAL -->
-<section id="SOCIAL MEDIA">
-  <h2>Social Media</h2>
+<section id="social">
+  <h2>SOCIAL MEDIA</h2>
 
   <div class="social">
     <a href="https://youtube.com" target="_blank">YouTube</a>
     <a href="https://spotify.com" target="_blank">Spotify</a>
-    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/bunski_music/" target="_blank">Instagram</a>
   </div>
 </section>
+
+<script>
+function openImage(src) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = src;
+}
+
+function closeImage() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>

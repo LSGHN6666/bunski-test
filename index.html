@@ -213,28 +213,40 @@ section > *:not(h2) {
 }
 
 .hero-image {
-  width: 100%;
+  width: 90%;
+
   display: flex;
   justify-content: center;
+  align-items: center;
 
-  margin-top: 80px; /* Platz für Navbar */
+  margin-top: 80px;
+
+  overflow: hidden;
 }
 
 .hero-image img {
   width: 100%;
-  max-width: 580px;
+  max-width: 600px;
 
   aspect-ratio: 1 / 1;
   object-fit: contain;
 
-  display: block;
+ display: block;
 }
 
+
+body {
+  margin: 0;
+  padding: 0;
+}
 
 html, body {
   overflow-x: hidden;
 }
 
+* {
+   outline: 0px solid red;
+}
 
 </style>
 </head>

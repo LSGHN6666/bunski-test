@@ -212,6 +212,30 @@ section > *:not(h2) {
   max-height: 90%;
 }
 
+.hero-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  margin-top: 80px; /* Platz für Navbar */
+}
+
+.hero-image img {
+  width: 85%;
+  max-width: 600px;
+
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+
+  display: block;
+}
+
+
+html, body {
+  overflow-x: hidden;
+}
+
+
 </style>
 </head>
 
@@ -229,7 +253,11 @@ section > *:not(h2) {
 
 <!-- HOME -->
 <section id="home">
-  <h1>BUNSKI</h1>
+  <!-- <h1>BUNSKI</h1> -->
+
+<div class="hero-image">
+  <img src="Band2.jpg" alt="Bunski">
+</div>
 
     <p>
       Bunski ist eine Indierockband aus Wien. Vier Freunde – Gesang, zwei Gitarren,
@@ -309,7 +337,7 @@ section > *:not(h2) {
   <h2>CONTACT US</h2>
 
   <p>
-    <a href="mailto:xxxxx">xxxxx</a>
+    <a href="mailto:xxx">xxx</a>
   </p>
 </section>
 

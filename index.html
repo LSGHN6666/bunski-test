@@ -241,6 +241,70 @@ body {
   padding: 0;
 }
 
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert die Felder horizontal */
+  gap: 15px;
+  width: 90%;
+  max-width: 500px; /* Kompaktere Breite für bessere Optik */
+  background: rgba(255, 247, 210, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 30px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%; /* Nutzt die volle Breite des zentrierten Formulars */
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  box-sizing: border-box; /* Verhindert, dass Padding die Breite sprengt */
+  background: white;
+}
+
+.contact-form button {
+  width: 100%; /* Button ist genauso breit wie die Felder */
+  max-width: 200px; /* Optional: Button schmaler als Felder */
+  background: black;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.contact-form button:hover {
+  background: #333;
+  transform: scale(1.02);
+}
+
+/* Anpassung für mobile Endgeräte */
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 20px;
+  }
+}
+
+
 html, body {
   overflow-x: hidden;
 }
@@ -354,10 +418,23 @@ html, body {
 <!-- KONTAKT -->
 <section id="contact">
   <h2>CONTACT US</h2>
+  
+  <div class="contact-container">
+    <form action="https://formspree.io/f/xkoyqypb" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Dein Name" required>
+      <input type="email" name="_replyto" placeholder="Deine E-Mail Adresse" required>
+      <textarea name="message" rows="5" placeholder="Deine Nachricht an Bunski..." required></textarea>
+      
+      <!-- Anti-Spam Honeypot -->
+      <input type="text" name="_gotcha" style="display:none">
+      
+      <button type="submit">ABSENDEN</button>
+    </form>
+  </div>
 
-  <p>
-    <a href="mailto:xxx">xxx</a>
-  </p>
+
+
+
 </section>
 
 <!-- SOCIAL -->
